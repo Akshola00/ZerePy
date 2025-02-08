@@ -6,7 +6,7 @@ from src.action_handler import register_action
 
 logger = logging.getLogger("actions.sonic_actions")
 
-@register_action("get-token-by-ticker")
+@register_action("get-token-by-ticker") # gets the token address by ticker symbol
 def get_token_by_ticker(agent, **kwargs):
     """Get token address by ticker symbol"""
     try:
@@ -28,7 +28,7 @@ def get_token_by_ticker(agent, **kwargs):
         logger.error(f"Failed to get token by ticker: {str(e)}")
         return None
 
-@register_action("get-sonic-balance")
+@register_action("get-sonic-balance") # gets the balance of $S or a token
 def get_sonic_balance(agent, **kwargs):
     """Get $S or token balance"""
     try:
@@ -58,7 +58,7 @@ def get_sonic_balance(agent, **kwargs):
         logger.error(f"Failed to get balance: {str(e)}")
         return None
 
-@register_action("send-sonic")
+@register_action("send-sonic") # sends $S tokens to an address
 def send_sonic(agent, **kwargs):
     """Send $S tokens to an address"""
     try:
@@ -78,7 +78,7 @@ def send_sonic(agent, **kwargs):
         logger.error(f"Failed to send $S: {str(e)}")
         return None
 
-@register_action("send-sonic-token")
+@register_action("send-sonic-token") # sends tokens on the sonic chain
 def send_sonic_token(agent, **kwargs):
     """Send tokens on Sonic chain"""
     try:
@@ -100,8 +100,7 @@ def send_sonic_token(agent, **kwargs):
         logger.error(f"Failed to send tokens: {str(e)}")
         return None
 
-
-@register_action("swap-sonic")
+@register_action("swap-sonic") # swaps tokens on the sonic chain 
 def swap_sonic(agent, **kwargs):
     """Swap tokens on Sonic chain"""
     try:
@@ -132,7 +131,7 @@ def swap_sonic(agent, **kwargs):
         logger.error(f"Failed to swap tokens: {str(e)}")
         return None
     
-@register_action("get-sonic-price")
+@register_action("get-sonic-price") # gets a token price on the sonic chain
 def get_sonic_price(agent, **kwargs):
     """Get token price on Sonic chain"""
     try:
