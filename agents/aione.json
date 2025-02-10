@@ -29,6 +29,26 @@
       "name": "swap-sonic",
       "weight": 1,
       "handler": "src.actions.sonic_actions.swap_sonic"
+    },
+    {
+      "name": "get-sonic-balance",
+      "weight": 1,
+      "handler": "src.actions.sonic_actions.get_sonic_balance"
+    },
+    {
+      "name": "transfer-sonic",
+      "weight": 1,
+      "handler": "src.actions.sonic_actions.transfer_sonic"
+    },
+    {
+      "name": "get-sonic-token",
+      "weight": 1,
+      "handler": "src.actions.sonic_actions.get_sonic_token"
+    },
+    {
+      "name": "get-price",
+      "weight": 1,
+      "handler": "src.actions.sonic_actions.get_price"
     }
   ],
 
