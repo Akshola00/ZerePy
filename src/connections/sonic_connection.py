@@ -430,7 +430,7 @@ class SonicConnection(BaseConnection):
             # Sign and send transaction
             signed_tx = account.sign_transaction(tx)
             tx_hash = self._web3.eth.send_raw_transaction(signed_tx.rawTransaction)
-            
+                
             # Log and return explorer link immediately
             tx_link = self._get_explorer_link(tx_hash.hex())
             return f"🔄 Swap transaction sent: {tx_link}"
