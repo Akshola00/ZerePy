@@ -100,33 +100,20 @@ def send_sonic_token(agent, **kwargs):
         logger.error(f"Failed to send tokens: {str(e)}")
         return None
 
-@register_action("swap-sonic") # swaps tokens on the sonic chain 
+@register_action("swap-sonic")
 def swap_sonic(agent, **kwargs):
-    """Swap tokens on Sonic chain"""
     try:
-        # Validate required parameters
         token_in = kwargs.get("token_in")
         token_out = kwargs.get("token_out")
-        amount = kwargs.get("amount")
-        
-        if not all([token_in, token_out, amount]):
-            raise ValueError("Missing required parameters: token_in, token_out, amount")
-            
-        # Convert amount to float with validation
-        try:
-            amount = float(amount)
-        except (TypeError, ValueError):
-            raise ValueError(f"Invalid amount value: {amount}")
-
-        tx_url = agent.connection_manager.connections["sonic"].swap(
+        amount = float(kwargs.get("amount"))
+        slippage = float(kwargs.get("slippage", 0.5))
+        agent.connection_manager.connections["sonic"].swap(
             token_in=token_in,
             token_out=token_out,
-            amount=amount
+            amount=amount,
+            slippage=slippage
         )
-
-        logger.info(f"Swapped {amount} {token_in} for {token_out}")
-        return tx_url
-
+        return
     except Exception as e:
         logger.error(f"Failed to swap tokens: {str(e)}")
         return None
