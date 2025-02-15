@@ -21,6 +21,18 @@
       "name": "groq",
       "model": "llama-3.3-70b-versatile",
       "temperature": 0.5
+    },
+    {
+      "name": "goat",
+      "plugins": [
+        {
+          "name": "rugcheck",
+          "args": {
+            "jwt_token": "VZFDUWB3YGQ1YCDKTCU1D6DDSS",
+            "base_url": "https://api.rugcheck.xyz"
+          }
+        }
+      ]
     }
   ],
 
